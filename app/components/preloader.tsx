@@ -3,7 +3,11 @@
 import React, { useState, useEffect } from "react";
 import CircularText from "./circularText";
 
-const Preloader = () => {
+type Props = {
+  onComplete?: () => void;
+};
+
+const Preloader = ({ onComplete }: Props) => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
 
@@ -13,7 +17,10 @@ const Preloader = () => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setLoading(false), 500);
+          setTimeout(() => {
+            setLoading(false);
+            if (onComplete) onComplete();
+          }, 500);
           return 100;
         }
         return prev + Math.floor(Math.random() * 5) + 1;
