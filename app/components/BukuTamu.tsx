@@ -76,10 +76,10 @@ const BukuTamu = () => {
             Kirim Doa & Ucapan
           </p>
         </div>
-        <div className="w-full bg-white p-8 md:p-12  font-grotesk">
+        <div className="w-full bg-white p-8 md:p-12 font-playfair">
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
-              <label htmlFor="name" className="text-zinc-700 font-semibold font-grotesk">
+              <label htmlFor="name" className="text-zinc-700 font-semibold">
                 Nama Lengkap
               </label>
               <input
@@ -103,7 +103,7 @@ const BukuTamu = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Tuliskan ucapan dan doa untuk kedua mempelai"
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-zinc-800 transition-all bg-zinc-50 resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-zinc-800 transition-all bg-zinc-50 resize-none font-grotesk"
                 required
               ></textarea>
             </div>
@@ -182,7 +182,7 @@ const BukuTamu = () => {
               items={entries.map((entry) => (
                 <div
                   key={entry.id}
-                  className="bg-white p-6  flex flex-col gap-3 w-full"
+                  className="bg-white p-6  flex flex-col gap-3 w-full font-playfair"
                 >
                   <div className="flex justify-between items-start gap-4">
                     <div>
@@ -190,12 +190,12 @@ const BukuTamu = () => {
                         {entry.name}
                       </h4>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="text-xs text-zinc-500">
+                        <span className="text-xs text-zinc-500 font-grotesk">
                           {entry.date}
                         </span>
                         <span className="text-xs text-zinc-300">•</span>
                         <span
-                          className={`text-xs px-2 py-0.5 rounded font-semibold `}
+                          className={`text-xs px-2 py-0.5 rounded font-semibold font-grotesk`}
                         >
                           {entry.attendance === "hadir"
                             ? `Hadir (${entry.count} org)`
@@ -204,7 +204,7 @@ const BukuTamu = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="mt-2 text-zinc-600 leading-relaxed bg-zinc-50 p-4 rounded-xl italic">
+                  <div className="mt-2 text-zinc-600 leading-relaxed bg-zinc-50 p-4 rounded-xl  ">
                     "{entry.message}"
                   </div>
                 </div>
